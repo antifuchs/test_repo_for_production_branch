@@ -4,3 +4,4 @@ first real change
 second real change
 first real non-merge change
 second real non-merge change
+2.5th real non-merge change
