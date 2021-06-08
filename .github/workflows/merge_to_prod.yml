@@ -13,7 +13,7 @@ jobs:
       - name: Create Pull Request against "production"
         uses: peter-evans/create-pull-request@v3
         with:
-          base: main
-          branch: production
+          branch: main
+          base: production
           assignees: antifuchs
           reviewers: antifuchs
