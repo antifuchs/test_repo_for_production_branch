@@ -17,3 +17,4 @@ jobs:
           base: production
           assignees: antifuchs
           reviewers: antifuchs
+          token: ${{ secrets.CREATE_PR_TOKEN }}
