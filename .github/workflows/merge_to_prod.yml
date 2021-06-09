@@ -10,11 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+
       - name: Create Pull Request against "production"
-        uses: peter-evans/create-pull-request@v3
+        uses: repo-sync/pull-request@v2
         with:
-          branch: main
-          base: production
-          assignees: antifuchs
-          reviewers: antifuchs
-          token: ${{ secrets.CREATE_PR_TOKEN }}
+          source_branch: main
+          destination_branch: production
+          github_token: ${{ secrets.CREATE_PR_TOKEN }}
+          pr_body: |
+            This PR kicks off a deploy for ${{ github.ref }}.
+          pr_title: "Deploy ${{ github.ref }}"
