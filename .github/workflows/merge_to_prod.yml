@@ -13,10 +13,17 @@ jobs:
 
       - name: Create Pull Request against "production"
         uses: repo-sync/pull-request@v2
+        id: open_pr
         with:
           source_branch: main
           destination_branch: production
           github_token: ${{ secrets.CREATE_PR_TOKEN }}
           pr_body: |
-            This PR kicks off a deploy for ${{ github.head_ref }}. Triggered by ${{ github.sha }}.
+            This PR kicks off a deploy for ${{ github.ref }}. Triggered by ${{ github.sha }}.
           pr_title: "Deploy ${{ github.ref }}"
+
+
+      - name: Tell us about the pull req
+        run: |
+          echo ${{ steps.open_pr.outputs.pr_number }}
+          echo ${{ steps.open_pr.outputs.pr_url }}
