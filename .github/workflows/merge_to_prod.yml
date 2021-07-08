@@ -26,9 +26,3 @@ jobs:
           pr_body: |
             This PR kicks off a deploy for `${{ github.ref }}`. Triggered by ${{ github.sha }}.
           pr_title: "Deploy ${{ github.ref }} (${{ steps.date.outputs.date }})"
-
-      - name: Tell us about the pull req
-        # This does not work if the PR already exists /:
-        run: |
-          echo ${{ steps.open_pr.outputs.pr_number }}
-          echo ${{ steps.open_pr.outputs.pr_url }}
