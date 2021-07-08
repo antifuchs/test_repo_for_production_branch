@@ -22,7 +22,6 @@ jobs:
           source_branch: main
           destination_branch: production
           github_token: ${{ secrets.CREATE_PR_TOKEN }}
-          pr_reviewer: "MaterializeInc/deploy-test-team"
           pr_assignee: "${{ github.actor }}"
           pr_body: |
             This PR kicks off a deploy for \`${{ github.ref }}\`. Triggered by ${{ github.sha }}.
