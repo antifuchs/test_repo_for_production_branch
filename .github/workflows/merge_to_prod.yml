@@ -22,8 +22,9 @@ jobs:
           source_branch: main
           destination_branch: production
           github_token: ${{ secrets.CREATE_PR_TOKEN }}
+          pr_reviewer: "MaterializeInc/deploy-test-team"
           pr_body: |
-            This PR kicks off a deploy for ${{ github.ref }}. Triggered by ${{ github.sha }}.
+            This PR kicks off a deploy for `${{ github.ref }}`. Triggered by ${{ github.sha }}.
           pr_title: "Deploy ${{ github.ref }} (${{ steps.date.outputs.date }})"
 
       - name: Tell us about the pull req
