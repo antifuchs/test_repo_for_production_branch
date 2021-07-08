@@ -11,6 +11,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+
       - name: Create Pull Request against "production"
         uses: repo-sync/pull-request@v2
         id: open_pr
@@ -20,7 +24,7 @@ jobs:
           github_token: ${{ secrets.CREATE_PR_TOKEN }}
           pr_body: |
             This PR kicks off a deploy for ${{ github.ref }}. Triggered by ${{ github.sha }}.
-          pr_title: "Deploy ${{ github.ref }}"
+          pr_title: "Deploy ${{ github.ref }} (${{ steps.date.outputs.date }})"
 
       - name: Tell us about the pull req
         # This does not work if the PR already exists /:
