@@ -14,6 +14,7 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         environment: production
+        production_environment: true
         ref: ${{ github.head_ref || github.ref }}
         state: 'pending'
 
@@ -27,6 +28,7 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         environment: production
+        production_environment: true
         environment_url: 'https://env.url'
         ref: ${{ github.head_ref || github.ref }}
         state: 'success'
@@ -35,6 +37,7 @@ jobs:
       if: failure()
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
+        production_environment: true
         environment: production
         ref: ${{ github.head_ref || github.ref }}
         state: 'failure'
