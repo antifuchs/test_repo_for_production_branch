@@ -8,6 +8,7 @@ on:
 jobs:
   report-status:
     runs-on: ubuntu-latest
+    environment: production
     steps:
     - name: Create GitHub deployment (pending)
       uses: sergioramos/yet-another-deployment-action/create@v1
